@@ -10,12 +10,7 @@ leveleditor/stylefiles/sketched_central/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
-*.pyd
 *$py.class
-
-
-# C extensions
-*.so
 
 # Distribution / packaging
 .Python
