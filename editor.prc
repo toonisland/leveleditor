@@ -8,8 +8,8 @@ win-origin -2 -2
 win-size 1280 720
 
 # Set engine window title
-window-title Open Level Editor - Engine View
-icon-filename resources/openttle_ico_temp.ico
+window-title TIA Level Editor - Explorer
+icon-filename resources/phase_3/etc/icon.ico
 
 # The framebuffer-hardware flag forces it to use an accelerated driver.
 framebuffer-hardware #t
@@ -28,6 +28,7 @@ notify-level-dna info
 
 # Model Path
 model-path    $MAIN_DIR
+model-path    resources
 
 # Enable/disable performance profiling tool and frame-rate meter
 want-pstats            #f

@@ -30,7 +30,7 @@ DEFAULT_SERVER = TOONTOWN_ONLINE
 
 
 class ToontownLevelEditor(ShowBase):
-    notify = directNotify.newCategory("Open Level Editor")
+    notify = directNotify.newCategory("TIA Level Editor")
     APP_VERSION = open('ver', 'r').read()
 
     def __init__(self):
@@ -62,9 +62,7 @@ class ToontownLevelEditor(ShowBase):
         parser.add_argument("--holiday", nargs = "*", help = "Enables holiday modes. [halloween or winter]")
         parser.add_argument("--hoods", nargs = "*", help = "Only loads the storage files of the specified hoods",
                             default = ['TT', 'DD', 'BR', 'DG',
-                                       'DL', 'MM', 'GS', 'GZ',
-                                       'SBHQ', 'LBHQ', 'CBHQ', 'BBHQ',
-                                       'OZ', 'PA', 'ES', 'TUT'])
+                                       'DL', 'MM'])
         parser.add_argument("dnaPath", nargs = "?", help = "Load the DNA file through the specified path")
 
         args = parser.parse_args()
@@ -81,14 +79,14 @@ class ToontownLevelEditor(ShowBase):
         else:
             # If we don't specify png, we can search
             # we can use the eyes texture
-            if os.path.exists("phase_3/maps/eyes.jpg"):
+            if os.path.exists("resources/phase_3/maps/eyes.jpg"):
                 loadPrcFileData("", "png-textures false")
-            elif os.path.exists("phase_3/maps/eyes.png"):
+            elif os.path.exists("resources/phase_3/maps/eyes.png"):
                 loadPrcFileData("", "png-textures true")
             else:
                 messagebox.showerror(
                     message = "There was an error located resources!\n"
-                              "Make sure you put the phase folders in the root folder!")
+                              "Make sure you put the phase folders in the resources folder!")
 
         server = SERVER_TO_ID.get(args.server[0].lower(), DEFAULT_SERVER)
         self.server = server
@@ -187,10 +185,10 @@ class ToontownLevelEditor(ShowBase):
     def __createTk(self):
         tkroot = Tk()
         tkroot.withdraw()
-        tkroot.title("Open Level Editor")
+        tkroot.title("TIA Level Editor - Toolbox")
         if sys.platform == 'win32':
             # FIXME: This doesn't work in other platforms for some reason...
-            tkroot.iconbitmap("resources/openttle_ico_temp.ico")
+            tkroot.iconbitmap("resources/phase_3/etc/icon.ico")
 
         self.tkRoot = tkroot
 

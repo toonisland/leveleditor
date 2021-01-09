@@ -32,7 +32,7 @@ class LevelEditorPanel(Pmw.MegaToplevel):
 
         if sys.platform == 'win32':
             # FIXME: This doesn't work in other platforms for some reason...
-            self.iconbitmap("resources/openttle_ico_temp.ico")
+            self.iconbitmap("resources/phase_3/etc/icon.ico")
 
         self.levelEditor = levelEditor
         self.styleManager = self.levelEditor.styleManager
@@ -157,7 +157,7 @@ class LevelEditorPanel(Pmw.MegaToplevel):
                             'Lists all the controls',
                             label = 'Controls...', command = self.showControls)
         menuBar.addmenuitem('Help', 'command',
-                            'About the Open Level Editor',
+                            'About TIA Level Editor',
                             label = 'About...', command = self.showAbout)
         # Create the HELP dialog
         Pmw.aboutversion(base.APP_VERSION)
