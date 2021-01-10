@@ -732,8 +732,8 @@ class LevelEditor(NodePath, DirectObject):
 
                 bldg.setPosHpr(tb.getPos(), tb.getHpr())
 
-                # clash has 5, the rest have 4
-                numCorps = 5 if base.server == TOONTOWN_CORPORATE_CLASH else 4
+                # compiler has 5, the rest have 4
+                numCorps = 4
                 suitType = random.randint(0, numCorps - 1)
 
                 suitBuilding = suitBuildings[suitType]

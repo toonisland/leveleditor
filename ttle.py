@@ -15,20 +15,6 @@ import builtins
 import os
 import sys
 
-TOONTOWN_ONLINE = 0
-TOONTOWN_REWRITTEN = 1
-TOONTOWN_CORPORATE_CLASH = 2
-TOONTOWN_OFFLINE = 3
-
-SERVER_TO_ID = {'online':    TOONTOWN_ONLINE,
-                'rewritten': TOONTOWN_REWRITTEN,
-                'clash':     TOONTOWN_CORPORATE_CLASH,
-                'offline':   TOONTOWN_OFFLINE
-                }
-
-DEFAULT_SERVER = TOONTOWN_ONLINE
-
-
 class ToontownLevelEditor(ShowBase):
     notify = directNotify.newCategory("TIA Level Editor")
     APP_VERSION = "TIA"
@@ -46,19 +32,8 @@ class ToontownLevelEditor(ShowBase):
 
         # Check for -e or -d launch options
         parser = argparse.ArgumentParser(description = "Modes")
-        parser.add_argument("--experimental", action = 'store_true', help = "Enables experimental features")
-        parser.add_argument("--debug", action = 'store_true', help = "Enables debugging features")
-        parser.add_argument("--noupdate", action = 'store_true', help = "Disables Auto Updating")
         parser.add_argument("--png", action = 'store_true', help = "Forces PNG resources mode, if this is not specified, "
                                                                    "it will automatically determine the format")
-        parser.add_argument("--compiler", nargs = "*",
-                            help = "Specify which compiler to use (Only useful if your game uses a form of "
-                                   "libpandadna.) Valid options are 'libpandadna', for games which use the "
-                                   "modern c++ version of libpandadna, and 'clash', "
-                                   "for Corporate Clash")
-
-        parser.add_argument("--server", nargs = "*", help = "Enables features exclusive to various Toontown projects",
-                            default = 'online')
         parser.add_argument("--holiday", nargs = "*", help = "Enables holiday modes. [halloween or winter]")
         parser.add_argument("--hoods", nargs = "*", help = "Only loads the storage files of the specified hoods",
                             default = ['TT', 'DD', 'BR', 'DG',
@@ -66,16 +41,11 @@ class ToontownLevelEditor(ShowBase):
         parser.add_argument("dnaPath", nargs = "?", help = "Load the DNA file through the specified path")
 
         args = parser.parse_args()
-        if args.experimental:
-            loadPrcFileData("", "want-experimental true")
-        if args.debug:
-            loadPrcFileData("", "want-debug true")
-        if args.compiler:
-            loadPrcFileData("", f"compiler {args.compiler[0]}")
+        loadPrcFileData("", "want-experimental true")
+        loadPrcFileData("", "want-debug true")
+        loadPrcFileData("", f"compiler libpandadna")
         if args.holiday:
             loadPrcFileData("", f"holiday {args.holiday[0]}")
-        if args.png:
-            loadPrcFileData("", "png-textures true")
         else:
             # If we don't specify png, we can search
             # we can use the eyes texture
@@ -88,8 +58,7 @@ class ToontownLevelEditor(ShowBase):
                     message = "There was an error located resources!\n"
                               "Make sure you put the phase folders in the resources folder!")
 
-        server = SERVER_TO_ID.get(args.server[0].lower(), DEFAULT_SERVER)
-        self.server = server
+        self.server = 0
 
         self.hoods = args.hoods
         # HACK: Check for dnaPath in args.hoods

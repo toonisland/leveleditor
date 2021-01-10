@@ -105,14 +105,12 @@ class DNASerializer:
 
     @staticmethod
     def outputDNA(filename):
-        print('Saving DNA to: ', filename)
+        print('Writing DNA to ', filename)
         binaryFilename = Filename(filename)
         binaryFilename.setBinary()
         base.le.DNAData.writeDna(binaryFilename, Notify.out(), DNASTORE)
         base.le.popupNotification(f"Saved to {os.path.basename(binaryFilename)}")
-        if ConfigVariableString("compiler") in ['libpandadna', 'clash']:
-            print(f"Compiling PDNA for {ConfigVariableString('compiler')}")
-            DNASerializer.compileDNA(binaryFilename)
+        DNASerializer.compileDNA(binaryFilename)
 
     @staticmethod
     def compileDNA(filename):

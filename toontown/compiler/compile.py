@@ -3,17 +3,10 @@ import os
 import sys
 import glob
 
-if ConfigVariableString("compiler") == 'clash':
-    # Clash uses an old version of libpandadna's compiler
-    from .clashdna.dna.base import DNAStorage
-    from .clashdna.dna.components import DNARoot
-    from .clashdna.dna.parser.tokens import *
-
-if ConfigVariableString("compiler") == 'libpandadna':
-    from .libpandadna.dna.base import DNAStorage
-    from .libpandadna.dna.components import DNARoot
-    from .libpandadna.dna.parser.tokens import *
-from ply import lex
+from toontown.compiler.dna.base import DNAStorage
+from toontown.compiler.dna.components import DNARoot
+from toontown.compiler.dna.parser.tokens import *
+from toontown.compiler.ply import lex
 
 lexer = lex.lex(optimize = 0)
 
@@ -45,7 +38,7 @@ def process_single_file(filename):
 
     data = dnaStore.dump(verbose = 0)
     output = os.path.splitext(filename)[0] + '.pdna'
-    print('Writing...', output)
+    print('Writing PDNA to ', output)
     data.extend(rootData)
 
     with open(output, 'wb') as f:
@@ -53,5 +46,3 @@ def process_single_file(filename):
         f.write(b'\x00')
         f.write(b'\n')
         f.write(data)
-
-    print(f'Done saving {filename}.')
