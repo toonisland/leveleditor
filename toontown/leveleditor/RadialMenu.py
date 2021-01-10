@@ -27,7 +27,7 @@ class RadialMenu(DirectObject):
         self.items = items
 
         # Load the palletized gui model
-        gui = loader.loadModel("resources/camera_gui.bam")
+        gui = loader.loadModel("resources/level_editor/camera_gui.bam")
 
         # Create the frame
         self.frame = DirectFrame(geom = gui.find("**/radial_menu_bg"), parent = hidden, scale = 1.3, relief = None)
