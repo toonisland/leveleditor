@@ -17,7 +17,7 @@ class VisGroupsEditor(Pmw.MegaToplevel):
         Pmw.MegaToplevel.__init__(self, parent, title = self['title'])
         if sys.platform == 'win32':
             # FIXME: This doesn't work in other platforms for some reason...
-            self.iconbitmap("resources/openttle_ico_temp.ico")
+            self.iconbitmap("../../resources/openttle_ico_temp.ico")
         self.levelEditor = levelEditor
         self.visGroups = visGroups
         self.visGroupNames = [pair[1].getName() for pair in self.visGroups]
