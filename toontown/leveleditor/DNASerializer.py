@@ -3,6 +3,8 @@ import os
 from tkinter import *
 from tkinter.filedialog import *
 from direct.directnotify import DirectNotifyGlobal
+from .EditorUtil import *
+from .LevelStyleManager import *
 
 dnaDirectory = Filename.expandFrom(userfiles)
 
@@ -10,6 +12,9 @@ dnaDirectory = Filename.expandFrom(userfiles)
 class DNASerializer:
     notify = DirectNotifyGlobal.directNotify.newCategory('LevelEditor')
     outputFile = None
+    # Local AutoSaver variables
+    autoSaverMgrRunning = False
+    autoSaveCount = 0
 
     # STYLE/DNA FILE FUNCTIONS
     @staticmethod
@@ -24,6 +29,11 @@ class DNASerializer:
                                       initialdir = path,
                                       title = 'Load DNA File',
                                       parent = base.le.panel.component('hull'))
+        DNASerializer.autoSaveCount = 0
+        # Wait until auto saver is done managing files before loading new file
+        while DNASerializer.autoSaverMgrRunning is True:
+            if DNASerializer.autoSaverMgrRunning is False:
+                break
         if dnaFilename:
             DNASerializer.loadDNAFromFile(dnaFilename)
             DNASerializer.outputFile = dnaFilename
@@ -42,12 +52,17 @@ class DNASerializer:
                 initialdir = path,
                 title = 'Save DNA File as',
                 parent = base.le.panel.component('hull'))
+        DNASerializer.autoSaveCount = 0
+        # Wait until auto saver is done managing files before saving new file
+        while DNASerializer.autoSaverMgrRunning is True:
+            if DNASerializer.autoSaverMgrRunning is False:
+                break
         if dnaFilename:
             DNASerializer.outputDNA(dnaFilename)
             DNASerializer.outputFile = dnaFilename
 
     @staticmethod
-    def loadDNAFromFile(filename):
+    def loadDNAFromFile(filename: str):
         DNASerializer.notify.debug("Filename: %s" % filename)
         # Reset level, destroying existing scene/DNA hierarcy
         base.le.reset(fDeleteToplevel = 1, fCreateToplevel = 0,
@@ -58,7 +73,8 @@ class DNASerializer:
             node = loadDNAFile(DNASTORE, Filename.fromOsSpecific(filename).cStr(), CSDefault, 1)
         except Exception:
             DNASerializer.notify.debug(
-                    "Couldn't load specified DNA file. Please make sure storage code has been specified in Config.prc file")
+                    "Couldn't load specified DNA file. Please make sure storage code has been specified in Config.prc "
+                    "file")
             return
         if node.getNumParents() == 1:
             # If the node already has a parent arc when it's loaded, we must
