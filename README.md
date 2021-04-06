@@ -1,7 +1,7 @@
 ![thumbnail](https://raw.githubusercontent.com/OpenToontownTools/web/master/assets/openttle_thumb.png)
-#TIA Level Editor
+# TIA Level Editor
 
-## An open sourced modernized version of Disney's in-house Toontown Online level editor used to create .dna files.
+## A fork of the open sourced modernized version of Disney's in-house Toontown Online level editor used to create .dna files.
 
 # [***READ THE FAQ BEFORE ASKING QUESTIONS***](#faq)
 ### [Check the WIKI for help and showcases of what the community has made with this tool!](https://github.com/OpenToontownTools/TTOpenLevelEditor/wiki)
