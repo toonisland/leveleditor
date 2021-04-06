@@ -311,8 +311,8 @@ BaritoneBoulevard = 4200
 TenorTerrace = 4300
 # DaisyGardens
 ElmStreet = 5100
-MapleStreet = 5200
-OakStreet = 5300
+CrowCircle = 5200
+RavenRoad = 5300
 # DonaldsDreamland
 LullabyLane = 9100
 PajamaPlace = 9200
@@ -325,7 +325,7 @@ HoodHierarchy = {
     DonaldsDock      : (BarnacleBoulevard, SeaweedStreet, LighthouseLane),
     TheBrrrgh        : (WalrusWay, SleetStreet, PolarPlace),
     MinniesMelodyland: (AltoAvenue, BaritoneBoulevard, TenorTerrace),
-    DaisyGardens     : (ElmStreet, MapleStreet, OakStreet),
+    DaisyGardens     : (ElmStreet, CrowCircle, RavenRoad),
     DonaldsDreamland : (LullabyLane, PajamaPlace),
     GoofySpeedway    : (),
     }
