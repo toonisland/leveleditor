@@ -2670,7 +2670,7 @@ class LevelEditor(NodePath, DirectObject):
     def setEditMode(self, neighborhood):
         self.neighborhood = neighborhood
         self.neighborhoodCode = NEIGHBORHOOD_CODES[self.neighborhood]
-        if neighborhood == 'toontown_central':
+        if neighborhood == 'toon_island_central':
             self.outputDir = 'ToontownCentral'
         elif neighborhood == 'donalds_dock':
             self.outputDir = 'DonaldsDock'

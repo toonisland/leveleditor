@@ -9711,7 +9711,7 @@ NPCToonNames = {
 # Run ppython $TOONTOWN/src/dna/DNAPrintTitles.py to generate this list
 # DO NOT EDIT THE ENTRIES HERE -- EDIT THE ORIGINAL DNA FILE
 zone2TitleDict = {
-    # titles for: phase_4/dna/toontown_central_sz.dna
+    # titles for: phase_4/dna/toon_island_central_sz.dna
     2513: ("Toon Hall", ""),
     2514: ("Toontown Bank", ""),
     2516: ("Toontown School House", ""),
@@ -9720,7 +9720,7 @@ zone2TitleDict = {
     2520: (lToonHQ, ""),
     2521: ("Clothing Shop", ""),
     2522: ("Pet Shop", ""),
-    # titles for: phase_5/dna/toontown_central_2100.dna
+    # titles for: phase_5/dna/toon_island_central_2100.dna
     2601: ("All Smiles Tooth Repair", ""),
     2602: ("", ""),
     2603: ("One-Liner Miners", ""),
@@ -9763,7 +9763,7 @@ zone2TitleDict = {
     2669: ("Muldoon's Maroon Balloons", ""),
     2670: ("Soup Forks", ""),
     2671: ("", ""),
-    # titles for: phase_5/dna/toontown_central_2200.dna
+    # titles for: phase_5/dna/toon_island_central_2200.dna
     2701: ("", ""),
     2704: ("Movie Multiplex", ""),
     2705: ("Wiseacre's Noisemakers", ""),
@@ -9793,7 +9793,7 @@ zone2TitleDict = {
     2744: ("", ""),
     2747: ("Visible Ink", ""),
     2748: ("Jest for Laughs", ""),
-    # titles for: phase_5/dna/toontown_central_2300.dna
+    # titles for: phase_5/dna/toon_island_central_2300.dna
     2801: ("Sofa Whoopee Cushions", ""),
     2802: ("Inflatable Wrecking Balls", ""),
     2803: ("The Karnival Kid", ""),
