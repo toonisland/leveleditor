@@ -743,8 +743,8 @@ streetPhaseMap = {
 
 # Maps hoods to download phases
 dnaMap = {
-    Tutorial         : "toontown_central",
-    ToontownCentral  : "toontown_central",
+    Tutorial         : "toon_island_central",
+    ToontownCentral  : "toon_island_central",
     DonaldsDock      : "donalds_dock",
     MinniesMelodyland: "minnies_melody_land",
     GoofySpeedway    : "goofy_speedway",
