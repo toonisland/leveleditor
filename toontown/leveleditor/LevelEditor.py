@@ -2671,17 +2671,17 @@ class LevelEditor(NodePath, DirectObject):
         self.neighborhood = neighborhood
         self.neighborhoodCode = NEIGHBORHOOD_CODES[self.neighborhood]
         if neighborhood == 'toon_island_central':
-            self.outputDir = 'ToontownCentral'
-        elif neighborhood == 'donalds_dock':
-            self.outputDir = 'DonaldsDock'
-        elif neighborhood == 'minnies_melody_land':
-            self.outputDir = 'MinniesMelodyLand'
-        elif neighborhood == 'the_burrrgh':
+            self.outputDir = 'ToonIslandCentral'
+        elif neighborhood == 'rainbow_rise':
+            self.outputDir = 'RainbowRise'
+        elif neighborhood == 'olive_oasis':
+            self.outputDir = 'OliveOasis'
+        elif neighborhood == 'funny_farm':
             self.outputDir = 'TheBurrrgh'
-        elif neighborhood == 'daisys_garden':
-            self.outputDir = 'DaisysGarden'
-        elif neighborhood == 'donalds_dreamland':
-            self.outputDir = 'DonaldsDreamland'
+        elif neighborhood == 'withering_woods':
+            self.outputDir = 'WitheringWoods'
+        elif neighborhood == 'minty_mines':
+            self.outputDir = 'MintyMines'
         self.panel.editMenu.selectitem(neighborhood)
         self.styleManager.setEditMode(neighborhood)
         self.panel.updateHeightList(self.getCurrent('building_height'))

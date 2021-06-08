@@ -868,7 +868,7 @@ class LocalAvatar(DistributedAvatar.DistributedAvatar,
                  Point3(0.0, camHeight, camHeight * 0.9),  # down
                  1,  # disable the smart cam
                  ),
-                # daisy gardens maze solver
+                # Withering Woods maze solver
                 # This shot is too drastic to include in the release
                 # It shows lots of behind the scenes areas
                 (Point3(0.0, -60, 60),

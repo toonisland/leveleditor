@@ -49,8 +49,8 @@ def getLoaderName(zoneId):
     if tutorialDict:
         # If the override is on, we are in the tutorial, and therefore
         # the townloader is the only one we care about, unless we are going
-        # through the tunnel to ToontownCentral.
-        if zoneId == ToontownCentral:
+        # through the tunnel to ToonIslandCentral.
+        if zoneId == ToonIslandCentral:
             loaderName = "safeZoneLoader"
         else:
             loaderName = "townLoader"
@@ -135,7 +135,7 @@ def getWhereName(zoneId, isToon):
         elif zoneId in tutorialDict["exteriors"]:
             where = "street"
         # This clause is for walking through the tunnel.
-        elif zoneId == ToontownCentral or zoneId == WelcomeValleyToken:
+        elif zoneId == ToonIslandCentral or zoneId == WelcomeValleyToken:
             where = "playground"
         else:
             zoneUtilNotify.error("No known zone: " + str(zoneId))
@@ -249,11 +249,11 @@ def getCanonicalZoneId(zoneId):
     """
     if zoneId == WelcomeValleyToken:
         # need GS case?
-        zoneId = ToontownCentral
+        zoneId = ToonIslandCentral
     elif zoneId >= WelcomeValleyBegin and zoneId < WelcomeValleyEnd:
         zoneId = (zoneId % 2000)
         if zoneId < 1000:
-            zoneId = zoneId + ToontownCentral
+            zoneId = zoneId + ToonIslandCentral
         else:
             zoneId = zoneId - 1000 + GoofySpeedway
     return zoneId
@@ -282,8 +282,8 @@ def getTrueZoneId(zoneId, currentZoneId):
             currentZoneId < WelcomeValleyEnd:
         hoodId = getHoodId(zoneId)
         offset = currentZoneId - (currentZoneId % 2000)
-        if hoodId == ToontownCentral:
-            return (zoneId - ToontownCentral) + offset
+        if hoodId == ToonIslandCentral:
+            return (zoneId - ToonIslandCentral) + offset
         elif hoodId == GoofySpeedway:
             return (zoneId - GoofySpeedway) + offset + 1000
     return zoneId
@@ -402,11 +402,11 @@ def getWakeInfo(hoodId = None, zoneId = None):
         if zoneId is None:
             zoneId = base.cr.playGame.getPlace().getZoneId()
         canonicalZoneId = getCanonicalZoneId(zoneId)
-        # Lets show wake in Toontown Central and Donalds Dock
-        if (canonicalZoneId == DonaldsDock):
+        # Lets show wake in Toon Island Central and RainbowRise
+        if (canonicalZoneId == RainbowRise):
             wakeWaterHeight = DDWakeWaterHeight
             showWake = 1
-        elif (canonicalZoneId == ToontownCentral):
+        elif (canonicalZoneId == ToonIslandCentral):
             wakeWaterHeight = TTWakeWaterHeight
             showWake = 1
         elif (canonicalZoneId == OutdoorZone):

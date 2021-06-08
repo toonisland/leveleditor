@@ -2,12 +2,12 @@ import string
 from otp.otpbase.OTPLocalizerEnglishProperty import *
 
 # common locations
-lTheBrrrgh = 'The Brrrgh'
-lDaisyGardens = 'Daisy Gardens'
-lDonaldsDock = "Donald's Dock"
-lDonaldsDreamland = "Donald's Dreamland"
-lMinniesMelodyland = "Minnie's Melodyland"
-lToontownCentral = 'Toontown Central'
+lFunnyFarms = 'Funny Farms'
+lWitheringWoodss = 'Withering Woods'
+lRainbowRise = "Rainbow Rise"
+lMintyMines = "Minty Mines"
+lOliveOasis = "Olive Oasis"
+lToonIslandCentral = 'Toon Island Central'
 lGoofySpeedway = "Goofy Speedway"
 lOutdoorZone = "Chip 'n Dale's Acorn Acres"
 lGolfZone = "Chip 'n Dale's MiniGolf"
@@ -1186,12 +1186,12 @@ SpeedChatStaticText = {
     1102 : "Let's go fight the %s!" % Cogs,
     1103 : "Let's go take over a %s building!" % Cog,
     1104 : "Let's go in the elevator!",
-    1105 : "Let's go to %s!" % lToontownCentral,
-    1106 : "Let's go to %s!" % lDonaldsDock,
-    1107 : "Let's go to %s!" % lMinniesMelodyland,
-    1108 : "Let's go to %s!" % lDaisyGardens,
-    1109 : "Let's go to %s!" % lTheBrrrgh,
-    1110 : "Let's go to %s!" % lDonaldsDreamland,
+    1105 : "Let's go to %s!" % lToonIslandCentral,
+    1106 : "Let's go to %s!" % lRainbowRise,
+    1107 : "Let's go to %s!" % lOliveOasis,
+    1108 : "Let's go to %s!" % lWitheringWoodss,
+    1109 : "Let's go to %s!" % lFunnyFarms,
+    1110 : "Let's go to %s!" % lMintyMines,
     1111 : "Let's go to %s!" % lGoofySpeedway,
     1112 : "Let's go to my house!",
     1113 : "Let's go to your house!",
@@ -2439,9 +2439,9 @@ SpeedChatStaticText = {
     # Phrases for April Toon's week
     60100 : "Happy April Toons' Week!",
     60101 : "Welcome to my April Toons' Week party!",
-    60110 : "Mickey is in Daisy Gardens.",
-    60111 : "Daisy is in Toontown Central.",
-    60112 : "Minnie is in The Brrrgh.",
+    60110 : "Mickey is in Withering Woods.",
+    60111 : "Daisy is in Toon Island Central.",
+    60112 : "Minnie is in Funny Farms.",
     60113 : "Pluto is in Melodyland.",
     60114 : "Donald is sleepwalking at the Speedway.",
     60115 : "Goofy is in Dreamland.",
