@@ -2,6 +2,7 @@ import builtins
 import glob
 import json
 import os
+import re
 import random
 from datetime import datetime
 from tkinter.filedialog import *
@@ -126,6 +127,7 @@ class LevelEditor(NodePath, DirectObject):
         self.collisionsToggled = False
         self.suitPreviewsToggled = False
         self.orthCam = False
+        self.occludersVisible = False
 
     def startUp(self, dnaPath = None):
         # Initialize LevelEditor variables DNAData, DNAToplevel, NPToplevel
@@ -225,6 +227,7 @@ class LevelEditor(NodePath, DirectObject):
             ('tab', self.enterGlobalRadialMenu),
             ('s', self.beginBoxSelection),
             ('alt-s', self.toggleSuitBuildingPreviews),
+            ('alt-o', self.toggleVisibleOccluders),
             # This already exists, but we will override it to show an input
             ('p', self.setReparentTarget)
             ]
@@ -701,8 +704,8 @@ class LevelEditor(NodePath, DirectObject):
             suitNames = ['Lawbot', 'Bossbot', 'Sellbot', 'Cashbot']
 
             if base.server == TOONTOWN_CORPORATE_CLASH:
-               suitBuildings.append(DNASTORE.findNode("suit_landmark_g1"))
-               suitNames.append('Boardbot')
+                suitBuildings.append(DNASTORE.findNode("suit_landmark_g1"))
+                suitNames.append('Boardbot')
 
             # temporary fix for duplicate sb's
             sb = []
@@ -819,6 +822,15 @@ class LevelEditor(NodePath, DirectObject):
                 del bldg
             self.suitBuildings = []
             self.popupNotification("Disabled Suit Building View")
+
+    def toggleVisibleOccluders(self):
+        self.occludersVisible = not self.occludersVisible
+        if occludersVisible:
+            for node in render.findAllMatches('**/+OccluderNode'):
+                node.show()
+        else:
+            for node in render.findAllMatches('**/+OccluderNode'):
+                node.hide()
 
     def setReparentTarget(self):
         if base.direct.selected.last:
@@ -1524,9 +1536,9 @@ class LevelEditor(NodePath, DirectObject):
         print("createNewGroup")
         """ Create a new DNA Node group under the active parent """
         if type == 'dna':
-            newDNANode = DNAGroup('group_' + repr(self.getGroupNum()))
+            newDNANode = DNAGroup('grp.' + repr(self.getGroupNum()))
         else:
-            newDNANode = DNAVisGroup('VisGroup_' + repr(self.getGroupNum()))
+            newDNANode = DNAVisGroup('grp.' + repr(self.getGroupNum()))
             # Increment group counter
         self.setGroupNum(self.getGroupNum() + 1)
         # Add new DNA Node group to the current parent DNA Object
@@ -1543,8 +1555,7 @@ class LevelEditor(NodePath, DirectObject):
     def addFlatBuilding(self, buildingType):
         # Create new building
         newDNAFlatBuilding = DNAFlatBuilding()
-        self.setRandomBuildingStyle(newDNAFlatBuilding,
-                                    name = 'tb0:' + buildingType + '_DNARoot')
+        self.setRandomBuildingStyle(newDNAFlatBuilding, name = f'tb0:flat_DNARoot')
         # Now place new building in the world
         self.initDNANode(newDNAFlatBuilding)
 
@@ -1557,8 +1568,12 @@ class LevelEditor(NodePath, DirectObject):
         self.setCurrent('toon_landmark_texture', landmarkType)
         block = self.getNextLandmarkBlock()
         print(landmarkType)
+        if self.panel.bldgIsSafeZone.get() and specialType == '':
+            prefix = 'sz'
+        else:
+            prefix = 'tb'
         newDNALandmarkBuilding = DNALandmarkBuilding(
-                'tb' + block + ':' + landmarkType + '_DNARoot')
+                f"{prefix}{block}:{landmarkType}_DNARoot")
         newDNALandmarkBuilding.setCode(landmarkType)
         newDNALandmarkBuilding.setTitle(title)
         newDNALandmarkBuilding.setBuildingType(specialType)
@@ -1585,8 +1600,7 @@ class LevelEditor(NodePath, DirectObject):
         # Record new anim building type
         self.setCurrent('anim_building_texture', animBuildingType)
         block = self.getNextLandmarkBlock()
-        newDNAAnimBuilding = DNAAnimBuilding(
-                'tb' + block + ':' + animBuildingType + '_DNARoot')
+        newDNAAnimBuilding = DNAAnimBuilding(f"tb{block}:{animBuildingType}_DNARoot")
         newDNAAnimBuilding.setCode(animBuildingType)
         newDNAAnimBuilding.setPos(VBase3(0))
         newDNAAnimBuilding.setHpr(VBase3(0))
@@ -1598,7 +1612,7 @@ class LevelEditor(NodePath, DirectObject):
         print("addProp %s " % propType)
         # Record new prop type
         self.setCurrent('prop_texture', propType)
-        newDNAProp = DNAProp(propType + '_DNARoot')
+        newDNAProp = DNAProp(f"prop.{propType.lower()}_DNARoot")
         newDNAProp.setCode(propType)
         newDNAProp.setPos(VBase3(0))
         newDNAProp.setHpr(VBase3(0))
@@ -1609,7 +1623,7 @@ class LevelEditor(NodePath, DirectObject):
         print("addAnimProp %s " % animPropType)
         # Record new anim prop type
         self.setCurrent('anim_prop_texture', animPropType)
-        newDNAAnimProp = DNAAnimProp(animPropType + '_DNARoot')
+        newDNAAnimProp = DNAAnimProp(f"{animPropType}_DNARoot")
         newDNAAnimProp.setCode(animPropType)
         newDNAAnimProp.setPos(VBase3(0))
         newDNAAnimProp.setHpr(VBase3(0))
@@ -1620,7 +1634,7 @@ class LevelEditor(NodePath, DirectObject):
         print("addInteractiveProp %s " % interactivePropType)
         # Record new interactive prop type
         self.setCurrent('interactive_prop_texture', interactivePropType)
-        newDNAInteractiveProp = DNAInteractiveProp(interactivePropType + '_DNARoot')
+        newDNAInteractiveProp = DNAInteractiveProp(f"{interactivePropType}_DNARoot")
         newDNAInteractiveProp.setCode(interactivePropType)
         newDNAInteractiveProp.setPos(VBase3(0))
         newDNAInteractiveProp.setHpr(VBase3(0))
@@ -1630,7 +1644,7 @@ class LevelEditor(NodePath, DirectObject):
     def addStreet(self, streetType):
         # Record new street type
         self.setCurrent('street_texture', streetType)
-        newDNAStreet = DNAStreet(streetType + '_DNARoot')
+        newDNAStreet = DNAStreet(f"str.{streetType.replace('street_', '').lower()}_DNARoot")
         newDNAStreet.setCode(streetType)
         newDNAStreet.setPos(VBase3(0))
         newDNAStreet.setHpr(VBase3(0))
@@ -3109,7 +3123,9 @@ class LevelEditor(NodePath, DirectObject):
             txt = OnscreenText(parent = aspect2d, pos = (0, 0), style = 3,
                                font = ToontownGlobals.getSignFont(),
                                wordwrap = 36,
-                               text = "Unable to resize screen. Render aborted.\nEnsure engine window is not maximized, as that prevents resizing\n\nPress SPACE to acknowledge.",
+                               text = "Unable to resize screen. Render aborted.\n"
+                                      "Ensure engine window is not maximized, as that prevents resizing\n\n"
+                                      "Press SPACE to acknowledge.",
                                scale = 0.1, bg = (0, 0, 0, .4), fg = (1, 0, 0, 1))
 
             # Destroy the message when the user hits space

@@ -107,7 +107,7 @@ class ToontownLevelEditor(ShowBase):
         self.__createTk()
 
         self.__addCullBins()
-        
+
         self.__registerShaders()
 
         # Now we actually start the editor
