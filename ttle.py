@@ -78,9 +78,9 @@ class ToontownLevelEditor(ShowBase):
         else:
             # If we don't specify png, we can search
             # we can use the eyes texture
-            if os.path.exists("../../resources/phase_3/maps/eyes.jpg"):
+            if os.path.exists("../resources/phase_3/maps/eyes.jpg"):
                 loadPrcFileData("", "png-textures false")
-            elif os.path.exists("../../resources/phase_3/maps/eyes.png"):
+            elif os.path.exists("../resources/phase_3/maps/eyes.png"):
                 loadPrcFileData("", "png-textures true")
             else:
                 messagebox.showerror(
@@ -190,7 +190,7 @@ class ToontownLevelEditor(ShowBase):
         tkroot.title("TIA Level Editor - Toolbox")
         if sys.platform == 'win32':
             # FIXME: This doesn't work in other platforms for some reason...
-            tkroot.iconbitmap("../../resources/phase_3/etc/icon.ico")
+            tkroot.iconbitmap("../resources/phase_3/etc/icon.ico")
 
         self.tkRoot = tkroot
 
