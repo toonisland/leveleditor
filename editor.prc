@@ -9,7 +9,7 @@ win-size 1280 720
 
 # Set engine window title
 window-title TIA Level Editor - Explorer
-icon-filename ../../resources/phase_3/etc/icon.ico
+icon-filename ../resources/phase_3/etc/icon.ico
 
 # The framebuffer-hardware flag forces it to use an accelerated driver.
 framebuffer-hardware #t
@@ -28,7 +28,7 @@ notify-level-dna info
 
 # Model Path
 model-path    $MAIN_DIR
-model-path    ../../resources
+model-path    ../resources
 
 # Enable/disable performance profiling tool and frame-rate meter
 want-pstats            #f

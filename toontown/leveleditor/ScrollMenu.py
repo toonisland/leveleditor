@@ -27,7 +27,7 @@ class ScrollMenu:
         numItemsVisible = 9
         itemHeight = 0.05
 
-        gui = loader.loadModel("../../resources/level_editor/level_editor_gui.bam")
+        gui = loader.loadModel("../resources/level_editor/level_editor_gui.bam")
 
         myScrolledList = DirectScrolledList(
                 decButton_pos = (0.4, 0, 0.53),

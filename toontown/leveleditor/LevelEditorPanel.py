@@ -37,7 +37,7 @@ class LevelEditorPanel(Pmw.MegaToplevel):
 
         if sys.platform == 'win32':
             # FIXME: This doesn't work in other platforms for some reason...
-            self.iconbitmap("../../resources/phase_3/etc/icon.ico")
+            self.iconbitmap("../resources/phase_3/etc/icon.ico")
 
         self.levelEditor = levelEditor
         self.styleManager = self.levelEditor.styleManager
@@ -1598,8 +1598,8 @@ class LevelEditorPanel(Pmw.MegaToplevel):
         if self.toggleOTVar.get():
             self.levelEditor.getNPToplevel().setShader(
                     Shader.load(Shader.SL_GLSL,
-                                vertex = '../../resources/shaders/tt_sha_render_bandw.vert',
-                                fragment = '../../resources/shaders/tt_sha_render_bandw.frag'))
+                                vertex = '../resources/shaders/tt_sha_render_bandw.vert',
+                                fragment = '../resources/shaders/tt_sha_render_bandw.frag'))
         else:
             self.levelEditor.getNPToplevel().clearShader()
 

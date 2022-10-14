@@ -1,11 +1,11 @@
 from toontown.toonbase.TTLocalizerEnglishProperty import *
 
-InterfaceFont = '../../resources/phase_3/models/fonts/ImpressBT.ttf'
-ToonFont = '../../resources/phase_3/models/fonts/ImpressBT.ttf'
-SuitFont = '../../resources/phase_3/models/fonts/vtRemingtonPortable.ttf'
-SignFont = '../../resources/phase_3/models/fonts/MickeyFont'
-MinnieFont = '../../resources/phase_3/models/fonts/MinnieFont'
-FancyFont = '../../resources/phase_3/models/fonts/Comedy'
+InterfaceFont = '../resources/phase_3/models/fonts/ImpressBT.ttf'
+ToonFont = '../resources/phase_3/models/fonts/ImpressBT.ttf'
+SuitFont = '../resources/phase_3/models/fonts/vtRemingtonPortable.ttf'
+SignFont = '../resources/phase_3/models/fonts/MickeyFont'
+MinnieFont = '../resources/phase_3/models/fonts/MinnieFont'
+FancyFont = '../resources/phase_3/models/fonts/Comedy'
 NametagFonts = ('phase_3/models/fonts/AnimGothic',      # 0 *
                 'phase_3/models/fonts/Aftershock',      # 1 *
                 'phase_3/models/fonts/JiggeryPokery',   # 2 *
@@ -90,28 +90,28 @@ lPartyHood = "Party Grounds"
 GlobalStreetNames = {
     20000: ("to", "on", "Tutorial Terrace"),  # Tutorial
     1000 : ("to the", "in the", "Playground"),
-    1100 : ("to", "on", "Barnacle Boulevard"),
-    1200 : ("to", "on", "Seaweed Street"),
-    1300 : ("to", "on", "Lighthouse Lane"),
+    1100 : ("to", "on", "Coral Court"),
+    1200 : ("to", "on", "Ocean Overpass"),
+    1300 : ("to", "on", "Plankton Path"),
     2000 : ("to the", "in the", "Playground"),
     2100 : ("to", "on", "Silly Street"),
     2200 : ("to", "on", "Loopy Lane"),
     2300 : ("to", "on", "Punchline Place"),
     3000 : ("to the", "in the", "Playground"),
-    3100 : ("to", "on", "Walrus Way"),
+    3100 : ("to", "on", "Doodle Drive"),
     3200 : ("to", "on", "Sleet Street"),
     3300 : ("to", "on", "Polar Place"),
     4000 : ("to the", "in the", "Playground"),
-    4100 : ("to", "on", "Alto Avenue"),
-    4200 : ("to", "on", "Baritone Boulevard"),
-    4300 : ("to", "on", "Tenor Terrace"),
+    4100 : ("to", "on", "Desert Drive"),
+    4200 : ("to", "on", "Tumbleweed Terrace"),
+    4300 : ("to", "on", "Cactus Court"),
     5000 : ("to the", "in the", "Playground"),
-    5100 : ("to", "on", "Elm Street"),
-    5200 : ("to", "on", "Maple Street"),
-    5300 : ("to", "on", "Oak Street"),
+    5100 : ("to", "on", "Willow Way"),
+    5200 : ("to", "on", "Crow Circle"),
+    5300 : ("to", "on", "Raven Road"),
     9000 : ("to the", "in the", "Playground"),
-    9100 : ("to", "on", "Lullaby Lane"),
-    9200 : ("to", "on", "Pajama Place"),
+    9100 : ("to", "on", "Roacky Road"),
+    9200 : ("to", "on", "Peppermint Place"),
     10000: ("to", "in", "Bossbot HQ Country Club"),
     10100: ("to the", "in the", "Bossbot HQ Lobby"),
     10200: ("to the", "in the", "The Clubhouse"),
@@ -597,7 +597,7 @@ QuestsItemDict = {
     4010: ["Clear Castanet", "Clear Castanets", "a "],
     4011: ["Leo's Lyrics", "Leo's Lyrics", ""],
 
-    # Daisy's Gardens quest items
+    # Withering Woods quest items
     5001: ["Silk necktie", "Silk neckties", "a "],
     5002: ["Pinstripe Suit", "Pinstripe Suits", "a "],
     5003: ["Pair of Scissors", "Pairs of Scissors", "a "],
@@ -1148,7 +1148,7 @@ QuestDialogDict = {
         },
 
     3210 : {
-        QUEST              : "Oh no, The Squirting Flower on Maple Street just ran out of flowers!\aTake them ten of your own squirting flowers to help out.\aMake sure you have 10 squirting flowers in your inventory first.",
+        QUEST              : "Oh no, The Squirting Flower on Crow Circle just ran out of flowers!\aTake them ten of your own squirting flowers to help out.\aMake sure you have 10 squirting flowers in your inventory first.",
         LEAVING            : "",
         INCOMPLETE_PROGRESS: "I need to have 10 squirting flowers. You don't have enough!"
         },
@@ -1258,7 +1258,7 @@ QuestDialogDict = {
         },
 
     3250 : {
-        QUEST: "Detective Lima over on Oak Street has heard some reports of a Sellbot Headquarters.\aHead over there and help her investigate.",
+        QUEST: "Detective Lima over on Raven Road has heard some reports of a Sellbot Headquarters.\aHead over there and help her investigate.",
         },
     3251 : {
         QUEST: "There is something strange going on around here.\aThere are so many Sellbots!\aI've heard they have organized their own headquarters at the end of this street.\aHead down the street and see if you can get to the bottom of this.\aFind Sellbot Cogs in their headquarters, defeat 5 of them, and report back.",
@@ -1973,16 +1973,16 @@ QuestDialogDict = {
     # Nat & PJ will get you acquainted with the new
     # HQ. And they'll give you your first suit part
     6231 : {
-        QUEST: "Nat over on Pajama Place heard rumors about a Cashbot Headquarters.\aHead over there and see if you can help him out._where_",
+        QUEST: "Nat over on Peppermint Place heard rumors about a Cashbot Headquarters.\aHead over there and see if you can help him out._where_",
         },
     6232 : {GREETING           : "",
             LEAVING            : "",
-            QUEST              : "I got a nibble about some strange goings on.\aWell, maybe it's the fleas but something is going on anyway.\aAll these Cashbots!\aI think they've opened another headquarters right off Pajama Place.\aP.J. knows his way around.\aGo see _toNpcName_ _where_ Ask him if he's heard anything.",
+            QUEST              : "I got a nibble about some strange goings on.\aWell, maybe it's the fleas but something is going on anyway.\aAll these Cashbots!\aI think they've opened another headquarters right off Peppermint Place.\aP.J. knows his way around.\aGo see _toNpcName_ _where_ Ask him if he's heard anything.",
             INCOMPLETE_PROGRESS: "You haven't seen P.J. yet? What's keeping you?\aOh, these darn fleas!",
             },
     6233 : {GREETING           : "",
             LEAVING            : "",
-            QUEST              : "Hey there _avName_, where are you headed?\aCashbot Headquarters?? I haven't seen anything.\aCould you go to the end of Pajama Place and see if it's true?\aFind some Cashbot Cogs in their headquarters, defeat a few of them, and come tell me about it.",
+            QUEST              : "Hey there _avName_, where are you headed?\aCashbot Headquarters?? I haven't seen anything.\aCould you go to the end of Peppermint Place and see if it's true?\aFind some Cashbot Cogs in their headquarters, defeat a few of them, and come tell me about it.",
             INCOMPLETE_PROGRESS: "Found the HQ yet? You'll need to defeat some Cashbots there to scope it out.",
             },
     6234 : {GREETING           : "",
@@ -4225,9 +4225,9 @@ FADoorCodes_TALK_TO_HQ_TOM = "Go get your reward from Toon Headquarters!"
 FADoorCodes_SUIT_APPROACHING = None  # no message, just refuse entry.
 FADoorCodes_BUILDING_TAKEOVER = "Watch out! There's a Cog in there!"
 FADoorCodes_SB_DISGUISE_INCOMPLETE = "You'll get caught going in there as a Toon! You need to complete your Sellbot Disguise first!\n\nBuild your Sellbot Disguise out of parts from the Factory."
-FADoorCodes_CB_DISGUISE_INCOMPLETE = "You'll get caught going in there as a Toon! You need to complete your Cashbot Disguise first!\n\nBuild your Cashbot Disguise by doing ToonTasks in Minty Mines."
-FADoorCodes_LB_DISGUISE_INCOMPLETE = "You'll get caught going in there as a Toon! You need to complete your Lawbot Disguise first!\n\nBuild your Lawbot Disguise by doing the ToonTasks after Minty Mines."
-FADoorCodes_BB_DISGUISE_INCOMPLETE = "You'll get caught going in there as a Toon! You need to complete your Bossbot Disguise first!\n\nBuild your Bossbot Disguise by doing the ToonTasks after Minty Mines."
+FADoorCodes_CB_DISGUISE_INCOMPLETE = "You'll get caught going in there as a Toon! You need to complete your Cashbot Disguise first!\n\nBuild your Cashbot Disguise by doing ToonTasks in MintyMines."
+FADoorCodes_LB_DISGUISE_INCOMPLETE = "You'll get caught going in there as a Toon! You need to complete your Lawbot Disguise first!\n\nBuild your Lawbot Disguise by doing the ToonTasks after MintyMines."
+FADoorCodes_BB_DISGUISE_INCOMPLETE = "You'll get caught going in there as a Toon! You need to complete your Bossbot Disguise first!\n\nBuild your Bossbot Disguise by doing the ToonTasks after MintyMines."
 
 # KnockKnock joke contest winners
 KnockKnockContestJokes = {
@@ -5976,9 +5976,9 @@ SillyPhase1Chatter = [
 SillyPhase2Chatter = [
     "Silly levels are still rising!",
     "The Silly Meter has climbed higher and gotten crazier!",
-    "Someone saw a trash can moving on Maple Street!",
+    "Someone saw a trash can moving on Crow Circle!",
     "A lot of hydrants on Silly Street have come alive!",
-    "A mailbox on Lighthouse Lane has gone nuts!",
+    "A mailbox on Plankton Path has gone nuts!",
     "Go see the Silly Meter in Toon Hall!",
     "Keep causing those silly surges!",
     ]
@@ -6445,7 +6445,7 @@ MusicTtElevator = "Going Up?"
 MusicEncntrToonWinningIndoor = "Toons Unite!"
 MusicEncntrGeneralSuitWinningIndoor = "Cog-tastrophe!"
 MusicTbNbrhood = "Funny Farms"
-MusicDlNbrhood = "Minty Mines"
+MusicDlNbrhood = "MintyMines"
 MusicDlSzActivity = "Counting Sheep"
 MusicDgSz = "Waltz of the Flowers"
 MusicDlSz = "Sleepwalking"
@@ -7866,8 +7866,6 @@ QuestScriptGagShop_8 = "...but there's no time for another game right now. You'r
 QuestScript120_1 = "Good job finding the trolley!\aBy the way, have you met Banker Bob?\aHe has quite a sweet tooth.\aWhy don't you introduce yourself by taking him this candy bar as a gift."
 QuestScript120_2 = "Banker Bob is over in the Toontown Bank."
 
-QuestScript121_1 = "Yum, thank you for the Candy Bar.\aSay, if you can help me, I'll give you a reward.\aThose Cogs stole the keys to my safe. Defeat Cogs to find a stolen key.\aWhen you find a key, bring it back to me."
-
 QuestScript130_1 = "Good job finding the trolley!\aBy the way, I received a package for Professor Pete today.\aIt must be his new chalk he ordered.\aCan you please take it to him?\aHe is over in the school house."
 
 QuestScript131_1 = "Oh, thanks for the chalk.\aWhat?!?\aThose Cogs stole my blackboard. Defeat Cogs to find my stolen blackboard.\aWhen you find it, bring it back to me."
@@ -9031,7 +9029,7 @@ NPCToonNames = {
     2120 : "Professor Binky",
     2121 : "Madam Chuckle",
     2122 : "Harry Ape",
-    2123 : "Spamonia Biggles",
+    2123 : "Agent Arlo",
     2124 : "T.P. Rolle",
     2125 : "Lazy Hal",
     2126 : "Professor Guffaw",
@@ -9146,7 +9144,7 @@ NPCToonNames = {
     1125 : "Eileen Overboard",
     1126 : "Fisherman Barney",
 
-    # Seaweed Street
+    # Ocean Overpass
     1201 : "Barnacle Barbara",
     1202 : "Art",
     1203 : "Ahab",
@@ -9176,7 +9174,7 @@ NPCToonNames = {
     1227 : "Coral Reef",
     1228 : "Fisherman Reed",
 
-    # Lighthouse Lane
+    # Plankton Path
     1301 : "Alice",
     1302 : "Melville",
     1303 : "Claggart",
@@ -9233,7 +9231,7 @@ NPCToonNames = {
     3013 : "Party Planner Pete",
     3014 : "Party Planner Penny",
 
-    # Walrus Way
+    # Doodle Drive
     3101 : "Mr. Cow",
     3102 : "Auntie Freeze",
     3103 : "Fred",
@@ -9443,7 +9441,7 @@ NPCToonNames = {
     4234 : "Leed Guitar",
     4235 : "Fisherman Larry",
 
-    # Tenor Terrace
+    # Cactus Court
     4301 : "Yuki",
     4302 : "Anna",
     4303 : "Leo",
@@ -9502,7 +9500,7 @@ NPCToonNames = {
     5012 : "Party Planner Pierce",
     5013 : "Party Planner Peggy",
 
-    # Elm Street
+    # Willow Way
     5101 : "Artie",
     5102 : "Susan",
     5103 : "Bud",
@@ -9533,7 +9531,7 @@ NPCToonNames = {
     5128 : "Shoshanna Sap",
     5129 : "Fisherman Sally",
 
-    # Maple Street
+    # Crow Circle
     5201 : "Jake",
     5202 : "Cynthia",
     5203 : "Lisa",
@@ -9564,7 +9562,7 @@ NPCToonNames = {
     5228 : "Digger Mudhands",
     5229 : "Fisherman Lily",
 
-    # Oak street
+    # Raven Road
     5301 : lHQOfficerM,
     5302 : lHQOfficerM,
     5303 : lHQOfficerM,
@@ -9624,7 +9622,7 @@ NPCToonNames = {
     9015 : "Party Planner Pebbles",
     9016 : "Party Planner Pearl",
 
-    # Lullaby Lane
+    # Roacky Road
     9101 : "Ed",
     9102 : "Big Mama",
     9103 : "P.J.",
@@ -9662,7 +9660,7 @@ NPCToonNames = {
     9135 : lHQOfficerF,
     9136 : "Fisherman Taylor",
 
-    # Pajama Place
+    # Peppermint Place
     9201 : "Bernie",
     9202 : "Orville",
     9203 : "Nat",
@@ -9742,7 +9740,7 @@ zone2TitleDict = {
     2633: ("Tee-Hee Tea Shop", ""),
     2638: ("Toontown Playhouse", ""),
     2639: ("Monkey Tricks", ""),
-    2643: ("Canned Bottles", ""),
+    2643: ("Around The Island: Travel Agency", ""),
     2644: ("Impractical Jokes", ""),
     2649: ("All Fun and Games Shop", ""),
     2652: ("", ""),
@@ -10569,7 +10567,7 @@ TipDict = {
         "Make sure you have full gags and a full Laff Meter before going to Cog Headquarters.",
         "As you get promoted, your Cog disguise updates.",
         "You must defeat the " + Foreman + " to recover a Sellbot Cog Disguise part.",
-        "Earn Cashbot disguise suit parts as rewards for completing ToonTasks in Minty Mines.",
+        "Earn Cashbot disguise suit parts as rewards for completing ToonTasks in MintyMines.",
         "Cashbots manufacture and distribute their currency, Cogbucks, in three Mints - Coin, Dollar and Bullion.",
         "Wait until the C.F.O. is dizzy to throw a safe, or he will use it as a helmet! Hit the helmet with another safe to knock it off.",
         "Earn Lawbot disguise suit parts as rewards for completing ToonTasks for Professor Flake.",

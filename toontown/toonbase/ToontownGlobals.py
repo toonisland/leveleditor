@@ -21,7 +21,7 @@ DatabaseIdFromClassName = {
 
     # DoodleDatabaseChannelId
     # 'DistributedDoodle': DoodleDatabaseChannelId,
-    }
+}
 
 # Toontown specific camera FOVs
 CogHQCameraFov = 60.0
@@ -250,7 +250,7 @@ SuitFont = None
 def getToonFont():
     global ToonFont
     if (ToonFont == None):
-        ToonFont = loader.loadFont(TTLocalizer.ToonFont, lineHeight = 1.0)
+        ToonFont = loader.loadFont(TTLocalizer.ToonFont, lineHeight=1.0)
     return ToonFont
 
 
@@ -272,8 +272,8 @@ def getSuitFont():
     global SuitFont
     if SuitFont == None:
         SuitFont = loader.loadFont(TTLocalizer.SuitFont,
-                                   pixelsPerUnit = 40,
-                                   spaceAdvance = 0.25, lineHeight = 1.0)
+                                   pixelsPerUnit=40,
+                                   spaceAdvance=0.25, lineHeight=1.0)
     return SuitFont
 
 
@@ -294,41 +294,41 @@ MintyMines = 9000
 
 # Street Branch zones
 # RainbowRise
-BarnacleBoulevard = 1100
-SeaweedStreet = 1200
-LighthouseLane = 1300
+CoralCourt = 1100
+OceanOverpass = 1200
+PlanktonPath = 1300
 # ToonIslandCentral
 SillyStreet = 2100
 LoopyLane = 2200
 PunchlinePlace = 2300
 # FunnyFarms
-WalrusWay = 3100
+DoodleDrive = 3100
 SleetStreet = 3200
 PolarPlace = 3300
 # OliveOasis
-AltoAvenue = 4100
-BaritoneBoulevard = 4200
-TenorTerrace = 4300
+DesertDrive = 4100
+TumbleweedTerrace = 4200
+CactusCourt = 4300
 # WitheringWoodss
-ElmStreet = 5100
+WillowWay = 5100
 CrowCircle = 5200
 RavenRoad = 5300
 # MintyMines
-LullabyLane = 9100
-PajamaPlace = 9200
+RoackyRoad = 9100
+PeppermintPlace = 9200
 
 # Keep a static zoneId for toonhall
 ToonHall = 2513
 
 HoodHierarchy = {
-    ToonIslandCentral  : (SillyStreet, LoopyLane, PunchlinePlace),
-    RainbowRise      : (BarnacleBoulevard, SeaweedStreet, LighthouseLane),
-    FunnyFarms        : (WalrusWay, SleetStreet, PolarPlace),
-    OliveOasis: (AltoAvenue, BaritoneBoulevard, TenorTerrace),
-    WitheringWoodss     : (ElmStreet, CrowCircle, RavenRoad),
-    MintyMines : (LullabyLane, PajamaPlace),
-    GoofySpeedway    : (),
-    }
+    ToonIslandCentral: (SillyStreet, LoopyLane, PunchlinePlace),
+    RainbowRise: (CoralCourt, OceanOverpass, PlanktonPath),
+    FunnyFarms: (DoodleDrive, SleetStreet, PolarPlace),
+    OliveOasis: (DesertDrive, TumbleweedTerrace, CactusCourt),
+    WitheringWoodss: (WillowWay, CrowCircle, RavenRoad),
+    MintyMines: (RoackyRoad, PeppermintPlace),
+    GoofySpeedway: (),
+}
 
 # This is a special case.  It's not a real zoneId, but is used to
 # represent the entire collection of WelcomeValley zones, which is
@@ -393,22 +393,22 @@ cogDept2index = {
     'l': 1,
     'm': 2,
     's': 3,
-    }
+}
 cogIndex2dept = invertDict(cogDept2index)
 
 HQToSafezone = {
     SellbotHQ: WitheringWoodss,
     CashbotHQ: MintyMines,
-    LawbotHQ : FunnyFarms,
+    LawbotHQ: FunnyFarms,
     BossbotHQ: RainbowRise,  # ?
-    }
+}
 
 CogDeptNames = [
     TTLocalizer.Bossbot,
     TTLocalizer.Lawbot,
     TTLocalizer.Cashbot,
     TTLocalizer.Sellbot,
-    ]
+]
 
 
 # cogHQ hood id to dept index
@@ -432,7 +432,7 @@ def dept2cogHQ(dept):
     dept2hq = {
         'c': BossbotHQ, 'l': LawbotHQ,
         'm': CashbotHQ, 's': SellbotHQ,
-        }
+    }
     return dept2hq[dept]
 
 
@@ -445,7 +445,7 @@ MintNumFloors = {
     CashbotMintIntA: 20,
     CashbotMintIntB: 20,
     CashbotMintIntC: 20,
-    }
+}
 
 CashbotMintCogLevel = 10
 CashbotMintSkelecogLevel = 11
@@ -464,13 +464,13 @@ MintNumBattles = {
     CashbotMintIntA: 4,  # 16 cogs = 8 merits
     CashbotMintIntB: 6,  # 24 cogs = 12 merits
     CashbotMintIntC: 8,  # 32 cogs = 16 merits
-    }
+}
 
 MintCogBuckRewards = {
     CashbotMintIntA: 8,  # 8 * 1.0
     CashbotMintIntB: 14,  # 12 * 1.1
     CashbotMintIntC: 20,  # 16 * 1.2
-    }
+}
 
 # these room counts do NOT include the entrance room
 # table of mintId->list of num rooms for each floor
@@ -478,7 +478,7 @@ MintNumRooms = {
     CashbotMintIntA: 2 * (6,) + 5 * (7,) + 5 * (8,) + 5 * (9,) + 3 * (10,),
     CashbotMintIntB: 3 * (8,) + 6 * (9,) + 6 * (10,) + 5 * (11,),
     CashbotMintIntC: 4 * (10,) + 10 * (11,) + 6 * (12,),
-    }
+}
 if __debug__:
     for mintId in MintNumRooms:
         assert len(MintNumRooms[mintId]) == MintNumFloors[mintId]
@@ -492,19 +492,19 @@ CountryClubNumRooms = {
     BossbotCountryClubIntA: (4,),  # 2*( 6,) + 5*( 7,) + 5*( 8,) + 5*( 9,) + 3*(10,),
     BossbotCountryClubIntB: 3 * (8,) + 6 * (9,) + 6 * (10,) + 5 * (11,),
     BossbotCountryClubIntC: 4 * (10,) + 10 * (11,) + 6 * (12,),
-    }
+}
 
 CountryClubNumBattles = {
     BossbotCountryClubIntA: 3,
     BossbotCountryClubIntB: 2,
     BossbotCountryClubIntC: 3,
-    }
+}
 
 CountryClubCogBuckRewards = {
     BossbotCountryClubIntA: 8,  # 8 * 1.0
     BossbotCountryClubIntB: 14,  # 12 * 1.1
     BossbotCountryClubIntC: 20,  # 16 * 1.2
-    }
+}
 
 # Stage
 
@@ -526,14 +526,14 @@ StageNumBattles = {
     LawbotStageIntB: 0,  # 24 cogs = 12 merits
     LawbotStageIntC: 0,  # 32 cogs = 16 merits
     LawbotStageIntD: 0,  # 40 cogs = 20 merits
-    }
+}
 
 StageNoticeRewards = {
     LawbotStageIntA: 75,
     LawbotStageIntB: 150,
     LawbotStageIntC: 225,
     LawbotStageIntD: 300,
-    }
+}
 
 # these room counts do NOT include the entrance room
 # table of stageId->list of num rooms for each floor
@@ -542,7 +542,7 @@ StageNumRooms = {
     LawbotStageIntB: 3 * (8,) + 6 * (9,) + 6 * (10,) + 5 * (11,),
     LawbotStageIntC: 4 * (10,) + 10 * (11,) + 6 * (12,),
     LawbotStageIntD: 4 * (10,) + 10 * (11,) + 6 * (12,),
-    }
+}
 """
 if __debug__:
     for stageId in StageNumRooms:
@@ -558,10 +558,10 @@ FT_Torso = 'torso'
 
 # 'factory id' is actually the faux-zone set aside for the factory
 factoryId2factoryType = {
-    MockupFactoryId  : FT_FullSuit,
+    MockupFactoryId: FT_FullSuit,
     SellbotFactoryInt: FT_FullSuit,
-    LawbotOfficeInt  : FT_FullSuit,
-    }
+    LawbotOfficeInt: FT_FullSuit,
+}
 
 # Street names
 StreetNames = TTLocalizer.GlobalStreetNames
@@ -624,34 +624,35 @@ PhotoGameId = 16
 TravelGameId = 100  # only used in trolley metagame
 
 MinigameNames = {
-    "race"    : RaceGameId,
-    "cannon"  : CannonGameId,
-    "tag"     : TagGameId,
-    "pattern" : PatternGameId,
-    "minnie"  : PatternGameId,
-    "match"   : PatternGameId,
+    "race": RaceGameId,
+    "cannon": CannonGameId,
+    "tag": TagGameId,
+    "pattern": PatternGameId,
+    "minnie": PatternGameId,
+    "match": PatternGameId,
     "matching": PatternGameId,
-    "ring"    : RingGameId,
-    "maze"    : MazeGameId,
-    "tug"     : TugOfWarGameId,
-    "catch"   : CatchGameId,
-    "diving"  : DivingGameId,
-    "target"  : TargetGameId,
-    "pairing" : PairingGameId,
-    "vine"    : VineGameId,
-    "ice"     : IceGameId,
-    "thief"   : CogThiefGameId,
-    "2d"      : TwoDGameId,
-    "photo"   : PhotoGameId,
-    "travel"  : TravelGameId,
-    }
+    "ring": RingGameId,
+    "maze": MazeGameId,
+    "tug": TugOfWarGameId,
+    "catch": CatchGameId,
+    "diving": DivingGameId,
+    "target": TargetGameId,
+    "pairing": PairingGameId,
+    "vine": VineGameId,
+    "ice": IceGameId,
+    "thief": CogThiefGameId,
+    "2d": TwoDGameId,
+    "photo": PhotoGameId,
+    "travel": TravelGameId,
+}
 
 # the minigame template; not used in final game
 MinigameTemplateId = -1
 
 MinigameIDs = (
-RaceGameId, CannonGameId, TagGameId, PatternGameId, RingGameId, MazeGameId, TugOfWarGameId, CatchGameId, DivingGameId,
-TargetGameId, PairingGameId, VineGameId, IceGameId, CogThiefGameId, TwoDGameId, PhotoGameId, TravelGameId,)
+    RaceGameId, CannonGameId, TagGameId, PatternGameId, RingGameId, MazeGameId, TugOfWarGameId, CatchGameId,
+    DivingGameId,
+    TargetGameId, PairingGameId, VineGameId, IceGameId, CogThiefGameId, TwoDGameId, PhotoGameId, TravelGameId,)
 
 # Minigame Id list
 MinigamePlayerMatrix = {
@@ -672,15 +673,15 @@ MinigamePlayerMatrix = {
     4: (CannonGameId, PatternGameId, RingGameId, TagGameId, RaceGameId, MazeGameId, TugOfWarGameId, CatchGameId,
         DivingGameId, TargetGameId, PairingGameId, VineGameId,
         IceGameId, CogThiefGameId, PhotoGameId, TwoDGameId),
-    }
+}
 
 # we are releasing one minigame a week for the new minigames
 MinigameReleaseDates = {
-    IceGameId     : (2008, 8, 0o5),
-    PhotoGameId   : (2008, 8, 13),
-    TwoDGameId    : (2008, 8, 20),
+    IceGameId: (2008, 8, 0o5),
+    PhotoGameId: (2008, 8, 13),
+    TwoDGameId: (2008, 8, 20),
     CogThiefGameId: (2008, 8, 27),
-    }
+}
 
 # Moved to OTPGlobals
 """
@@ -704,136 +705,136 @@ KeyboardTimeout = 300
 
 # Maps hoods to download phases
 phaseMap = {
-    Tutorial         : 4,
-    ToonIslandCentral  : 4,  # TT streets are in 5
-    MyEstate         : 5.5,
-    RainbowRise      : 6,
+    Tutorial: 4,
+    ToonIslandCentral: 4,  # TT streets are in 5
+    MyEstate: 5.5,
+    RainbowRise: 6,
     OliveOasis: 6,
-    GoofySpeedway    : 6,
-    FunnyFarms        : 8,
-    WitheringWoodss     : 8,
-    FunnyFarm        : 8,
-    MintyMines : 8,
-    OutdoorZone      : 8,
-    BossbotHQ        : 12,
-    SellbotHQ        : 9,
-    CashbotHQ        : 10,
-    LawbotHQ         : 11,
-    GolfZone         : 8,
-    PartyHood        : 13,
-    }
+    GoofySpeedway: 6,
+    FunnyFarms: 8,
+    WitheringWoodss: 8,
+    FunnyFarm: 8,
+    MintyMines: 8,
+    OutdoorZone: 8,
+    BossbotHQ: 12,
+    SellbotHQ: 9,
+    CashbotHQ: 10,
+    LawbotHQ: 11,
+    GolfZone: 8,
+    PartyHood: 13,
+}
 
 # town streets to download phases
 streetPhaseMap = {
-    ToonIslandCentral  : 5,
-    RainbowRise      : 6,
+    ToonIslandCentral: 5,
+    RainbowRise: 6,
     OliveOasis: 6,
-    GoofySpeedway    : 6,
-    FunnyFarms        : 8,
-    WitheringWoodss     : 8,
-    FunnyFarm        : 8,
-    MintyMines : 8,
-    OutdoorZone      : 8,
-    BossbotHQ        : 12,
-    SellbotHQ        : 9,
-    CashbotHQ        : 10,
-    LawbotHQ         : 11,
-    PartyHood        : 13,
-    }
+    GoofySpeedway: 6,
+    FunnyFarms: 8,
+    WitheringWoodss: 8,
+    FunnyFarm: 8,
+    MintyMines: 8,
+    OutdoorZone: 8,
+    BossbotHQ: 12,
+    SellbotHQ: 9,
+    CashbotHQ: 10,
+    LawbotHQ: 11,
+    PartyHood: 13,
+}
 
 # Maps hoods to download phases
 dnaMap = {
-    Tutorial         : "toon_island_central",
-    ToonIslandCentral  : "toon_island_central",
-    RainbowRise      : "rainbow_rise",
+    Tutorial: "toon_island_central",
+    ToonIslandCentral: "toon_island_central",
+    RainbowRise: "rainbow_rise",
     OliveOasis: "olive_oasis",
-    GoofySpeedway    : "goofy_speedway",
-    FunnyFarms        : "funny_farm",
-    WitheringWoodss     : "withering_woods",
-    FunnyFarm        : "not done yet",
-    MintyMines : "minty_mines",
-    OutdoorZone      : "outdoor_zone",
-    BossbotHQ        : "cog_hq_bossbot",
-    SellbotHQ        : "cog_hq_sellbot",
-    CashbotHQ        : "cog_hq_cashbot",
-    LawbotHQ         : "cog_hq_lawbot",
-    GolfZone         : "golf_zone",
-    }
+    GoofySpeedway: "goofy_speedway",
+    FunnyFarms: "funny_farm",
+    WitheringWoodss: "withering_woods",
+    FunnyFarm: "not done yet",
+    MintyMines: "minty_mines",
+    OutdoorZone: "outdoor_zone",
+    BossbotHQ: "cog_hq_bossbot",
+    SellbotHQ: "cog_hq_sellbot",
+    CashbotHQ: "cog_hq_cashbot",
+    LawbotHQ: "cog_hq_lawbot",
+    GolfZone: "golf_zone",
+}
 
 # Maps hoods to names
 hoodNameMap = {
-    RainbowRise      : TTLocalizer.RainbowRise,
-    ToonIslandCentral  : TTLocalizer.ToonIslandCentral,
-    FunnyFarms        : TTLocalizer.FunnyFarms,
+    RainbowRise: TTLocalizer.RainbowRise,
+    ToonIslandCentral: TTLocalizer.ToonIslandCentral,
+    FunnyFarms: TTLocalizer.FunnyFarms,
     OliveOasis: TTLocalizer.OliveOasis,
-    WitheringWoodss     : TTLocalizer.WitheringWoodss,
-    OutdoorZone      : TTLocalizer.OutdoorZone,
-    FunnyFarm        : TTLocalizer.FunnyFarm,
-    GoofySpeedway    : TTLocalizer.GoofySpeedway,
-    MintyMines : TTLocalizer.MintyMines,
-    BossbotHQ        : TTLocalizer.BossbotHQ,
-    SellbotHQ        : TTLocalizer.SellbotHQ,
-    CashbotHQ        : TTLocalizer.CashbotHQ,
-    LawbotHQ         : TTLocalizer.LawbotHQ,
-    Tutorial         : TTLocalizer.Tutorial,
-    MyEstate         : TTLocalizer.MyEstate,
-    GolfZone         : TTLocalizer.GolfZone,
-    PartyHood        : TTLocalizer.PartyHood
-    }
+    WitheringWoodss: TTLocalizer.WitheringWoodss,
+    OutdoorZone: TTLocalizer.OutdoorZone,
+    FunnyFarm: TTLocalizer.FunnyFarm,
+    GoofySpeedway: TTLocalizer.GoofySpeedway,
+    MintyMines: TTLocalizer.MintyMines,
+    BossbotHQ: TTLocalizer.BossbotHQ,
+    SellbotHQ: TTLocalizer.SellbotHQ,
+    CashbotHQ: TTLocalizer.CashbotHQ,
+    LawbotHQ: TTLocalizer.LawbotHQ,
+    Tutorial: TTLocalizer.Tutorial,
+    MyEstate: TTLocalizer.MyEstate,
+    GolfZone: TTLocalizer.GolfZone,
+    PartyHood: TTLocalizer.PartyHood
+}
 
 # map of number of things to load per zone
 safeZoneCountMap = {
-    MyEstate         : 8,
-    Tutorial         : 6,
-    ToonIslandCentral  : 6,
-    RainbowRise      : 10,
+    MyEstate: 8,
+    Tutorial: 6,
+    ToonIslandCentral: 6,
+    RainbowRise: 10,
     OliveOasis: 5,
-    GoofySpeedway    : 500,
-    FunnyFarms        : 8,
-    WitheringWoodss     : 9,
-    FunnyFarm        : 500,
-    MintyMines : 5,
-    OutdoorZone      : 500,
-    GolfZone         : 500,
-    PartyHood        : 500,
-    }
+    GoofySpeedway: 500,
+    FunnyFarms: 8,
+    WitheringWoodss: 9,
+    FunnyFarm: 500,
+    MintyMines: 5,
+    OutdoorZone: 500,
+    GolfZone: 500,
+    PartyHood: 500,
+}
 
 townCountMap = {
     # HACK! JNS just guessed at a tutorial count.
     # and SDN guessed at Estate count
-    MyEstate         : 8,
-    Tutorial         : 40,
-    ToonIslandCentral  : 37,
-    RainbowRise      : 40,
+    MyEstate: 8,
+    Tutorial: 40,
+    ToonIslandCentral: 37,
+    RainbowRise: 40,
     OliveOasis: 40,
-    GoofySpeedway    : 40,
-    FunnyFarms        : 40,
-    WitheringWoodss     : 40,
-    FunnyFarm        : 40,
-    MintyMines : 40,
-    OutdoorZone      : 40,
-    PartyHood        : 20,
-    }
+    GoofySpeedway: 40,
+    FunnyFarms: 40,
+    WitheringWoodss: 40,
+    FunnyFarm: 40,
+    MintyMines: 40,
+    OutdoorZone: 40,
+    PartyHood: 20,
+}
 
 hoodCountMap = {
-    MyEstate         : 2,
-    Tutorial         : 2,
-    ToonIslandCentral  : 2,
-    RainbowRise      : 2,
+    MyEstate: 2,
+    Tutorial: 2,
+    ToonIslandCentral: 2,
+    RainbowRise: 2,
     OliveOasis: 2,
-    GoofySpeedway    : 2,
-    FunnyFarms        : 2,
-    WitheringWoodss     : 2,
-    FunnyFarm        : 2,
-    MintyMines : 2,
-    OutdoorZone      : 2,
-    BossbotHQ        : 2,
-    SellbotHQ        : 43,
-    CashbotHQ        : 2,
-    LawbotHQ         : 2,
-    GolfZone         : 2,
-    PartyHood        : 2,
-    }
+    GoofySpeedway: 2,
+    FunnyFarms: 2,
+    WitheringWoodss: 2,
+    FunnyFarm: 2,
+    MintyMines: 2,
+    OutdoorZone: 2,
+    BossbotHQ: 2,
+    SellbotHQ: 43,
+    CashbotHQ: 2,
+    LawbotHQ: 2,
+    GolfZone: 2,
+    PartyHood: 2,
+}
 
 # Number of buildings you must have in your name to earn stars.
 # Note - these have gone up since the credit is based on the size of the building now
@@ -844,7 +845,7 @@ TrophyStarLevels = (
     50,  # A spinning silver star
     75,  # A gold star
     100,  # A spinning gold star
-    )
+)
 
 TrophyStarColors = (
     Vec4(0.9, 0.6, 0.2, 1),  # A bronze star
@@ -853,7 +854,7 @@ TrophyStarColors = (
     Vec4(0.8, 0.8, 0.8, 1),  # A silver star
     Vec4(1, 1, 0, 1),  # A gold star
     Vec4(1, 1, 0, 1),  # A gold star
-    )
+)
 
 # OTPGlobals
 """
@@ -903,10 +904,10 @@ PieCodeLawyer = 7  # prosecution lawyers for lawbot boss battle
 # And the splat colors, if any, that correspond to a hit on any of the
 # above.
 PieCodeColors = {
-    PieCodeBossCog   : None,  # A successful hit on the boss cog is in color.
+    PieCodeBossCog: None,  # A successful hit on the boss cog is in color.
     PieCodeNotBossCog: (0.8, 0.8, 0.8, 1),
-    PieCodeToon      : None,  # hitting a toon is also in color.
-    }
+    PieCodeToon: None,  # hitting a toon is also in color.
+}
 
 BossCogRollSpeed = 7.5
 BossCogTurnSpeed = 20
@@ -937,43 +938,43 @@ BossCogOvertimeAttack = 20
 
 # The amount of time it takes to play each attack.
 BossCogAttackTimes = {
-    BossCogElectricFence     : 0,
-    BossCogSwatLeft          : 5.5,
-    BossCogSwatRight         : 5.5,
-    BossCogAreaAttack        : 4.21,
-    BossCogFrontAttack       : 2.65,
+    BossCogElectricFence: 0,
+    BossCogSwatLeft: 5.5,
+    BossCogSwatRight: 5.5,
+    BossCogAreaAttack: 4.21,
+    BossCogFrontAttack: 2.65,
     BossCogRecoverDizzyAttack: 5.1,
-    BossCogDirectedAttack    : 4.84,
-    BossCogNoAttack          : 6,
+    BossCogDirectedAttack: 4.84,
+    BossCogNoAttack: 6,
     BossCogSlowDirectedAttack: 7.84,
-    BossCogMoveAttack        : 3,
-    BossCogGolfAttack        : 6,
-    BossCogGolfAreaAttack    : 7,
+    BossCogMoveAttack: 3,
+    BossCogGolfAttack: 6,
+    BossCogGolfAreaAttack: 7,
     BossCogGearDirectedAttack: 4.84,
-    BossCogOvertimeAttack    : 5,
-    }
+    BossCogOvertimeAttack: 5,
+}
 
 # The damage that each attack applies to a Toon.
 BossCogDamageLevels = {
-    BossCogElectricFence     : 1,
-    BossCogSwatLeft          : 5,
-    BossCogSwatRight         : 5,
-    BossCogAreaAttack        : 10,
-    BossCogFrontAttack       : 3,
+    BossCogElectricFence: 1,
+    BossCogSwatLeft: 5,
+    BossCogSwatRight: 5,
+    BossCogAreaAttack: 10,
+    BossCogFrontAttack: 3,
     BossCogRecoverDizzyAttack: 3,
-    BossCogDirectedAttack    : 3,
-    BossCogStrafeAttack      : 2,
-    BossCogGoonZap           : 5,
+    BossCogDirectedAttack: 3,
+    BossCogStrafeAttack: 2,
+    BossCogGoonZap: 5,
     BossCogSlowDirectedAttack: 10,
-    BossCogGavelStomp        : 20,
-    BossCogGavelHandle       : 2,
-    BossCogLawyerAttack      : 5,
-    BossCogMoveAttack        : 20,
-    BossCogGolfAttack        : 15,
-    BossCogGolfAreaAttack    : 15,
+    BossCogGavelStomp: 20,
+    BossCogGavelHandle: 2,
+    BossCogLawyerAttack: 5,
+    BossCogMoveAttack: 20,
+    BossCogGolfAttack: 15,
+    BossCogGolfAreaAttack: 15,
     BossCogGearDirectedAttack: 15,
-    BossCogOvertimeAttack    : 10,
-    }
+    BossCogOvertimeAttack: 10,
+}
 
 # Where are the Boss Cog's battles relative to him?
 BossCogBattleAPosHpr = (0, -25, 0, 0, 0, 0)
@@ -1023,7 +1024,7 @@ CashbotToonsBattleThreeStartPosHpr = [
     (144, -327, 0, 64, 0, 0),
     (145, -302, 0, 117, 0, 0),
     (93, -327, 0, -65, 0, 0),
-    ]
+]
 # How many safes in the final battle sequence, and where are they?
 CashbotBossSafePosHprs = [
     (120, -315, 30, 0, 0, 0),  # safe 0 is special; it drops on from above.
@@ -1035,7 +1036,7 @@ CashbotBossSafePosHprs = [
     (133.9, -359.1, 0, 0, 0, 0),
     (107.0, -274.7, 0, 180, 0, 0),
     (134.2, -274.7, 0, 180, 0, 0),
-    ]
+]
 
 # How many cranes, and where are they?
 CashbotBossCranePosHprs = [
@@ -1043,7 +1044,7 @@ CashbotBossCranePosHprs = [
     (97.4, -292.4, 0, -135, 0, 0),
     (142.6, -292.4, 0, 135, 0, 0),
     (142.6, -337.6, 0, 45, 0, 0),
-    ]
+]
 
 # How long does it take an object to fly from the ground to the magnet?
 CashbotBossToMagnetTime = 0.2
@@ -1250,7 +1251,7 @@ LawbotBossGavelPosHprs = [
     (-9, 49, 0, -180, 0, 0),  # along wall near judge
     (32, 0, 0, 45, 0, 0),  # opposite witness stand
     (33, 56, 0, 135, 0, 0),  # between center of room and witness stand
-    ]
+]
 
 # first number is time to go down, 2nd is time to go up, 3rd number is how long it stays down
 LawbotBossGavelTimes = [
@@ -1263,7 +1264,7 @@ LawbotBossGavelTimes = [
     (0.24, 1.1, 0.65),
     (0.27, 1.2, 0.45),
     (0.25, 0.95, 0.5),
-    ]
+]
 
 # change relative heading where the gavel lands, but give it a pattern so the observant player can predict where it lands
 LawbotBossGavelHeadings = [
@@ -1276,7 +1277,7 @@ LawbotBossGavelHeadings = [
     (0, -45, -90, 45, 90),
     (0, -45, 45),
     (0, -45, 45),
-    ]
+]
 
 # Where are the Boss Cog's battles relative to him?
 LawbotBossCogRelBattleAPosHpr = (-25, -10, 0, 0, 0, 0)
@@ -1306,7 +1307,7 @@ LawbotBossLawyerPosHprs = [
     (-57, 60, 0, -90, 0, 0),
     (-3, -37.3, 0, 0, 0, 0),
     (-3, 53, 0, -180, 0, 0),
-    ]
+]
 
 # how many seconds to wait till we attack or prosecute again
 LawbotBossLawyerCycleTime = 6
@@ -1334,7 +1335,7 @@ LawbotBossDifficultySettings = [
     (26, 7, 9, 3, 1, 1),
     (24, 8, 9, 4, 1, 1),
     (22, 8, 10, 4, 1, 0),
-    ]
+]
 
 # where are the cannons and how many are they
 LawbotBossCannonPosHprs = [
@@ -1346,7 +1347,7 @@ LawbotBossCannonPosHprs = [
     (-40, 48, 0, -90, 0, 0),
     (-40, 60, 0, -90, 0, 0),
     (-40, 72, 0, -90, 0, 0),
-    ]
+]
 
 LawbotBossCannonPosA = (-80, -51.48, 0)
 LawbotBossCannonPosB = (-80, 70.73, 0)
@@ -1367,7 +1368,7 @@ LawbotBossChairPosHprs = [
     (70, 32, 5, -90, 0, 0),
     (70, 22, 5, -90, 0, 0),
 
-    ]
+]
 
 LawbotBossChairRow1PosB = (59.3, 48, 14.05)
 LawbotBossChairRow1PosA = (59.3, -18.2, 14.05)
@@ -1445,7 +1446,7 @@ PinballScoring = [
     (25, 1),  # fence
     (100, 1),  # bridge
     (10, 1)  # planted statuary items
-    ]
+]
 
 PinballCannonBumperInitialPos = (0, -20, 40)
 
@@ -1480,7 +1481,7 @@ FactoryLaffMinimums = [
     (0, 81, 86, 96),
     # bossbot
     (0, 101, 106),
-    ]
+]
 
 # Picnic table sitting ime
 PICNIC_COUNTDOWN_TIME = 60
@@ -1512,7 +1513,7 @@ BossbotBossDifficultySettings = [
     (10, 6, 11, 7, 26, 27),
     (8, 8, 12, 8, 24, 28),
     (13, 5, 12, 9, 22, 29),
-    ]
+]
 # BossbotRollSpeedMax = 15
 BossbotRollSpeedMax = 22
 # BossbotRollSpeedMin = 3.75
@@ -1551,7 +1552,7 @@ gmMagicWordList = [
     "uberDrop", "rich", "maxBankMoney",
     "toonUp", "rod", "cogPageFull", "pinkSlips",
     "Tickets", "newSummons", "who", "who all"
-    ]
+]
 
 NewsPageScaleAdjust = 0.85
 # Prop types for the new animating props
@@ -1560,5 +1561,5 @@ AnimPropTypes = Enum(("Unknown",
                       "Mailbox",
                       "Trashcan",
                       ),
-                     start = -1
+                     start=-1
                      )

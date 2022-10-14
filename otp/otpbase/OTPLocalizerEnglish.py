@@ -5,7 +5,7 @@ from otp.otpbase.OTPLocalizerEnglishProperty import *
 lFunnyFarms = 'Funny Farms'
 lWitheringWoodss = 'Withering Woods'
 lRainbowRise = "Rainbow Rise"
-lMintyMines = "Minty Mines"
+lMintyMines = "MintyMines"
 lOliveOasis = "Olive Oasis"
 lToonIslandCentral = 'Toon Island Central'
 lGoofySpeedway = "Goofy Speedway"

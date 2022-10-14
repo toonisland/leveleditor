@@ -3994,7 +3994,7 @@ class LevelEditor(NodePath, DirectObject):
         """ Radial Menu with general commands """
 
         # Load the gui model
-        gui = await loader.loadModel("../../resources/level_editor/level_editor_gui.bam", blocking = False)
+        gui = await loader.loadModel("../resources/level_editor/level_editor_gui.bam", blocking = False)
 
         # Create the menu with the items
         rm = RadialMenu(
