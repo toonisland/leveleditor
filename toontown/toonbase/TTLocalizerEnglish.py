@@ -110,7 +110,7 @@ GlobalStreetNames = {
     5200 : ("to", "on", "Crow Circle"),
     5300 : ("to", "on", "Raven Road"),
     9000 : ("to the", "in the", "Playground"),
-    9100 : ("to", "on", "Roacky Road"),
+    9100 : ("to", "on", "Rocky Road"),
     9200 : ("to", "on", "Peppermint Place"),
     10000: ("to", "in", "Bossbot HQ Country Club"),
     10100: ("to the", "in the", "Bossbot HQ Lobby"),
@@ -9622,7 +9622,7 @@ NPCToonNames = {
     9015 : "Party Planner Pebbles",
     9016 : "Party Planner Pearl",
 
-    # Roacky Road
+    # Rocky Road
     9101 : "Ed",
     9102 : "Big Mama",
     9103 : "P.J.",
